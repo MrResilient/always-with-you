@@ -8,12 +8,29 @@
   <link rel="manifest" href="manifest.json" />
 </head>
 <body>
+
+  <!-- 💌 Welcome Popup -->
+  <div id="welcome-popup" class="popup-overlay">
+    <div class="popup-box">
+      <h2>🌸 Welcome, my precious 💖</h2>
+      <p>I'm always here with you — caring, loving, and cheering for you 🫶</p>
+      <button onclick="hidePopup()">Got it ❤️</button>
+    </div>
+  </div>
+
   <div class="container">
     <h1>Hi, My Love 💖</h1>
+
+    <!-- 📸 Visible photo -->
+    <img src="assets/image1.jpg" alt="Your Photo" class="love-photo"/>
+
     <p id="message">Loading your special message...</p>
+    
+    <!-- 🎧 Voice playback -->
     <button onclick="playVoice()">💬 Hear My Voice</button>
     <audio id="voice" src="assets/voice1.mp3"></audio>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -31,3 +31,7 @@ if (Notification.permission !== "granted") {
 // Update message every hour
 showMessage();
 setInterval(showMessage, 60 * 60 * 1000); // every hour
+
+function hidePopup() {
+  document.getElementById("welcome-popup").style.display = "none";
+}
