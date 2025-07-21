@@ -6,12 +6,18 @@ const messages = [
   "Close your eyes for a moment and breathe 🧘‍♀️"
 ];
 
-// Show message based on current hour
+const floatingMessages = [
+  "You’re never alone 💫",
+  "I'm proud of you 🫶",
+  "You light up my life 🌟",
+  "Sending hugs 🌸",
+  "You’re my whole world ❤️"
+];
+
 function showMessage() {
   const index = new Date().getHours() % messages.length;
   document.getElementById("message").innerText = messages[index];
 
-  // Show browser notification if allowed
   if (Notification.permission === "granted") {
     new Notification("From Shivansh 💌", {
       body: messages[index],
@@ -20,21 +26,23 @@ function showMessage() {
   }
 }
 
-// Ask for notification permission on load
-if (Notification.permission !== "granted") {
-  Notification.requestPermission();
+function rotateFloatingMessage() {
+  const msg = floatingMessages[Math.floor(Math.random() * floatingMessages.length)];
+  document.getElementById("floatingMsg").innerText = msg;
 }
 
-// Update message every hour
-showMessage();
-setInterval(showMessage, 60 * 60 * 1000);
+function hidePopup() {
+  document.getElementById("welcome-popup").style.display = "none";
+}
 
-// Show photo on button click
 function showPhoto() {
   document.getElementById("photo-section").style.display = "block";
 }
 
-// Play voice on button click
+function hidePhoto() {
+  document.getElementById("photo-section").style.display = "none";
+}
+
 function playVoice() {
   const voice = document.getElementById("voice");
   voice.play().catch(() => {
@@ -42,7 +50,27 @@ function playVoice() {
   });
 }
 
-// Hide welcome popup
-function hidePopup() {
-  document.getElementById("welcome-popup").style.display = "none";
+function saveMessageForHer() {
+  const message = document.getElementById("herMsg").value.trim();
+  if (message !== "") {
+    localStorage.setItem("messageForHer", message);
+    alert("Your message was saved 💌");
+    document.getElementById("herMsg").value = "";
+  }
+}
+
+window.onload = function () {
+  const msg = localStorage.getItem("messageForHer");
+  if (msg) {
+    document.getElementById("hisMsg").value = msg;
+  }
+
+  showMessage();
+  rotateFloatingMessage();
+  setInterval(showMessage, 60 * 60 * 1000); // every hour
+  setInterval(rotateFloatingMessage, 30000); // every 30 sec
+};
+
+if (Notification.permission !== "granted") {
+  Notification.requestPermission();
 }

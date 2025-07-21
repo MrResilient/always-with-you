@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,32 +9,41 @@
   <link rel="manifest" href="manifest.json" />
 </head>
 <body>
-
-  <!-- 💌 Welcome Popup -->
+  <!-- Welcome Popup -->
   <div id="welcome-popup" class="popup-overlay">
     <div class="popup-box">
-      <h2>🌸 Welcome, my precious 💖</h2>
-      <p>I'm always here with you — caring, loving, and cheering for you 🫶</p>
+      <h2>✨ Welcome, my precious 💖</h2>
+      <p>I'm always here with you — caring, loving, and cheering for you ��</p>
       <button onclick="hidePopup()">Got it ❤️</button>
     </div>
   </div>
 
-  <!-- 💝 Main Content -->
   <div class="container">
     <h1>Hi, My Love 💖</h1>
 
-    <!-- 📸 Show photo -->
+    <!-- Photo Button -->
     <button onclick="showPhoto()">📸 See Our Photo</button>
     <div id="photo-section" style="display: none; margin-top: 20px;">
-      <img src="assets/us.jpg" alt="Our Photo" class="love-photo"/>
+      <img src="assets/us.jpg" alt="Our Photo" class="love-photo" onclick="hidePhoto()" title="Click to hide"/>
     </div>
 
-    <!-- 🎧 Play voice -->
-    <button onclick="playVoice()">🎧 Hear My Voice</button>
+    <!-- Voice Button -->
+    <button onclick="playVoice()">🎵 Hear My Voice</button>
     <audio id="voice" src="assets/us.mp3"></audio>
 
-    <!-- ⏳ Message area -->
+    <!-- Hourly Message -->
     <p id="message">Loading your special message...</p>
+
+    <!-- Floating Message -->
+    <div class="floating-message" id="floatingMsg">You are loved 💖</div>
+
+    <!-- Message Box -->
+    <div class="message-box">
+      <h3>💌 Leave a message for each other</h3>
+      <textarea id="herMsg" placeholder="Write your message for her..."></textarea>
+      <button onclick="saveMessageForHer()">Send to Her 💖</button>
+      <textarea id="hisMsg" placeholder="Her message for you..." readonly></textarea>
+    </div>
   </div>
 
   <script src="script.js"></script>
