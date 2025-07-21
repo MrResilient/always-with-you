@@ -18,17 +18,22 @@
     </div>
   </div>
 
+  <!-- 💝 Main Content -->
   <div class="container">
     <h1>Hi, My Love 💖</h1>
 
-    <!-- 📸 Visible photo -->
-    <img src="assets/image1.jpg" alt="Your Photo" class="love-photo"/>
+    <!-- 📸 Show photo -->
+    <button onclick="showPhoto()">📸 See Our Photo</button>
+    <div id="photo-section" style="display: none; margin-top: 20px;">
+      <img src="assets/us.jpg" alt="Our Photo" class="love-photo"/>
+    </div>
 
+    <!-- 🎧 Play voice -->
+    <button onclick="playVoice()">🎧 Hear My Voice</button>
+    <audio id="voice" src="assets/us.mp3"></audio>
+
+    <!-- ⏳ Message area -->
     <p id="message">Loading your special message...</p>
-    
-    <!-- 🎧 Voice playback -->
-    <button onclick="playVoice()">💬 Hear My Voice</button>
-    <audio id="voice" src="assets/voice1.mp3"></audio>
   </div>
 
   <script src="script.js"></script>

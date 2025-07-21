@@ -1,4 +1,42 @@
-/* 💖 Welcome popup */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #ffe6f0, #fffafc);
+  text-align: center;
+  padding: 50px;
+}
+
+.container {
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 10px #ffb6c1;
+  max-width: 400px;
+  margin: auto;
+}
+
+button {
+  background: #ff69b4;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+button:hover {
+  background: #ff1493;
+}
+
+.love-photo {
+  width: 220px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(255, 105, 180, 0.5);
+}
+
+/* 💌 Welcome popup */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -42,13 +80,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* 📸 Photo style */
-.love-photo {
-  width: 200px;
-  height: auto;
-  border-radius: 16px;
-  margin-top: 20px;
-  box-shadow: 0 0 12px rgba(255, 105, 180, 0.5);
 }
