@@ -59,6 +59,25 @@ function saveMessageForHer() {
   }
 }
 
+function askNotificationDaily() {
+  const today = new Date().toISOString().split("T")[0];
+  const lastAsked = localStorage.getItem("lastNotificationPrompt");
+
+  if (Notification.permission !== "granted" && lastAsked !== today) {
+    const ask = confirm("Can I be with you every hour? 🥺 Please allow notifications.");
+    
+    if (ask && Notification.permission !== "denied") {
+      Notification.requestPermission().then(permission => {
+        if (permission === "granted") {
+          alert("Yayy! Now I can remind you with love 💖");
+        }
+      });
+    }
+
+    localStorage.setItem("lastNotificationPrompt", today);
+  }
+}
+
 window.onload = function () {
   const msg = localStorage.getItem("messageForHer");
   if (msg) {
@@ -67,10 +86,7 @@ window.onload = function () {
 
   showMessage();
   rotateFloatingMessage();
+  askNotificationDaily();
   setInterval(showMessage, 60 * 60 * 1000); // every hour
   setInterval(rotateFloatingMessage, 30000); // every 30 sec
 };
-
-if (Notification.permission !== "granted") {
-  Notification.requestPermission();
-}
